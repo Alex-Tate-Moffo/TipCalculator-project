@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">TipCalculator-Tate-Moffo</string>
+    <string name="app_name">Tip Calculator (Tate-Moffo)</string>
+
+    <string name="text_header">Calculate Tip</string>
+
+    <string name="text_bill">Bill Amount:</string>
+    <string name="text_people">Number of People:</string>
+    <string name="text_percent">Tip Percentage:</string>
+
+    <string name="input_bill">0</string>
+    <string name="input_people">0</string>
+    <string name="input_percent">0</string>
+
+    <string name="text_radio_10">10%</string>
+    <string name="text_radio_15">15%</string>
+    <string name="text_radio_20">20%</string>
+    <string name="text_radio_25">25%</string>
+    <string name="text_radio_custom">Custom</string>
+
+    <string name="button_calculate">Calculate</string>
+    <string name="button_reset">Reset</string>
+
 </resources>
