@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.078" />
 
     <EditText
-        android:id="@+id/input_bill"
+        android:id="@+id/input_people"
         android:layout_width="61dp"
         android:layout_height="43dp"
         android:hint="@string/input_bill"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toEndOf="@+id/text_people"
-        app:layout_constraintTop_toBottomOf="@+id/input_people"
+        app:layout_constraintTop_toBottomOf="@+id/input_bill"
         app:layout_constraintVertical_bias="0.046" />
 
     <TextView
@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.081" />
 
     <EditText
-        android:id="@+id/input_people"
+        android:id="@+id/input_bill"
         android:layout_width="61dp"
         android:layout_height="43dp"
         android:hint="@string/input_people"
@@ -87,22 +87,15 @@
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="358dp"
-        android:layout_height="46dp"
+        android:layout_width="291dp"
+        android:layout_height="45dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_percent"
         app:layout_constraintVertical_bias="0.058">
-
-        <RadioButton
-            android:id="@+id/radio_10"
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/text_radio_10" />
 
         <RadioButton
             android:id="@+id/radio_15"
@@ -137,15 +130,14 @@
         android:id="@+id/input_percent"
         android:layout_width="61dp"
         android:layout_height="43dp"
-        android:layout_marginTop="54dp"
         android:hint="@string/input_percent"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/text_percent"
+        app:layout_constraintVertical_bias="0.064" />
 
     <Button
         android:id="@+id/button_calculate"
