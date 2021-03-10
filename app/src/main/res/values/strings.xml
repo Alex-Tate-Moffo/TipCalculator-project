@@ -19,4 +19,13 @@
     <string name="button_calculate">Calculate</string>
     <string name="button_reset">Reset</string>
 
+    <string name="text_tipAmount">Tip Amount:</string>
+    <string name="text_total">Total:</string>
+    <string name="text_tipPerPerson">Tip Per Person:</string>
+
+    <string name="output_bill">0</string>
+    <string name="output_tipAmount">0</string>
+    <string name="output_total">0</string>
+    <string name="output_tipPerPerson">0</string>
+
 </resources>
