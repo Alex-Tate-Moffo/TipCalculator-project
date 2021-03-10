@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText inputPeople;
     private EditText inputCustom;
 
+    private RadioGroup radioGroup;
     private RadioButton fifteenSelected;
     private RadioButton twentySelected;
     private RadioButton twentyFiveSelected;
@@ -38,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*resetButton.setOnClickListener(new View.OnClickListener(){
+        resetButton = findViewById(R.id.button_reset);
+        resetButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
+                resetValues();
             }
-        });*/
+        });
 
         calculateButton = findViewById(R.id.button_calculate);
         calculateButton.setOnClickListener(new View.OnClickListener(){
@@ -142,6 +144,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Log.i(TAG, String.valueOf(tipPercent));
+    }
+
+    // can be called to reset the entered values
+    public void resetValues() {
+
+        Toast.makeText(getApplicationContext(),
+                "RESET VALUES", Toast.LENGTH_SHORT).show();
+
+        inputBill = findViewById(R.id.input_bill);
+        inputPeople = findViewById(R.id.input_people);
+        inputCustom = findViewById(R.id.input_percent);
+
+        inputBill.setText("");
+        inputPeople.setText("");
+        inputCustom.setText("");
+
+        radioGroup = findViewById(R.id.radioGroup);
+        radioGroup.clearCheck();
+
     }
 
     // ...
