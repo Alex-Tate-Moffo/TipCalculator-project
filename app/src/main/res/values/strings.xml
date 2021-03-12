@@ -28,4 +28,6 @@
     <string name="output_total">0</string>
     <string name="output_tipPerPerson">0</string>
 
+    <string name="button_calculateNew">Calculate New Tip</string>
+
 </resources>
