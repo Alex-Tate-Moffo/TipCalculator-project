@@ -169,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // ...
+
     public void goToSecondActivity() {
         String bill = inputBill.getText().toString();
         String numPeople = inputPeople.getText().toString();
@@ -179,16 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(i);
     }
-
-    // ...
-
-    // function that goes to the second activity
-
-        /*i.putExtra("bill", bill);
-        i.putExtra("numPeople", numPeople);
-        i.putExtra("tipPercent", tipPercent);
-
-        startActivity(i);*/
 
     // ...
 
