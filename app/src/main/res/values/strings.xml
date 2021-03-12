@@ -16,6 +16,8 @@
     <string name="text_radio_25">25%</string>
     <string name="text_radio_custom">Custom</string>
 
+    <string name="text_summary">Tip Summary</string>
+
     <string name="button_calculate">Calculate</string>
     <string name="button_reset">Reset</string>
 

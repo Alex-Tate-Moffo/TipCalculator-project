@@ -15,6 +15,18 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Alex Tate-Moffo
+     * Homework #2
+     * CSCI370 (Spring 2021)
+     *
+     * Tip Calculator App:
+     *      A simple app that allows the user to input a bill,
+     *      the number of people paying the bill, and the desired
+     *      tip percentage, and calculates the tip, total with
+     *      tip, and tip per person.
+     */
+
     // Declare global variables
     private String TAG = "MainActivity";
     private Intent i;
@@ -32,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton twentyFiveSelected;
     private RadioButton customSelected;
 
-    private float bill;
-    private int numPeople;
+    private String bill;
+    private String numPeople;
     private float tipPercent;
 
     @Override
@@ -41,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // creates the intent used to go to the SecondActivity
         i = new Intent(this, SecondActivity.class);
 
+        // assigns the reset button and declares an onClick listener
         resetButton = findViewById(R.id.button_reset);
         resetButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,22 +65,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // assigns the calculate button and declares an onClick listener
         calculateButton = findViewById(R.id.button_calculate);
         calculateButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                boolean valuesEntered = false;
 
-
+                // gets input fields
                 inputBill = findViewById(R.id.input_bill);
                 inputPeople = findViewById(R.id.input_people);
                 inputCustom = findViewById(R.id.input_percent);
 
+                // gets radio buttons
                 fifteenSelected = findViewById(R.id.radio_15);
                 twentySelected = findViewById(R.id.radio_20);
                 twentyFiveSelected = findViewById(R.id.radio_25);
                 customSelected = findViewById(R.id.radio_custom);
-
 
                 // if the bill field has a value and the value is >= 1 AND
                 // the num people field has a value and the value is >= 1
@@ -88,10 +102,13 @@ public class MainActivity extends AppCompatActivity {
                     else if ((customSelected.isChecked() &&
                             Float.parseFloat(inputCustom.getText().toString()) >= 1.0 )) {
 
+                        // sets the custom tip percent
+                        tipPercent = Float.parseFloat(inputCustom.getText().toString());
+
                         // GO TO SECOND ACTIVITY
                         goToSecondActivity();
-                        Toast.makeText(getApplicationContext(),
-                                "CALCULATING (custom)", Toast.LENGTH_SHORT).show();
+                        /*Toast.makeText(getApplicationContext(),
+                                "CALCULATING (custom)", Toast.LENGTH_SHORT).show();*/
 
                     }
                     // if a radio button other than custom is selected
@@ -101,8 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
                         // GO TO SECOND ACTIVITY
                         goToSecondActivity();
-                        Toast.makeText(getApplicationContext(),
-                                "CALCULATING (radio)", Toast.LENGTH_SHORT).show();
+                        /*Toast.makeText(getApplicationContext(),
+                                "CALCULATING (radio)", Toast.LENGTH_SHORT).show();*/
 
                     }
                     // if no radio buttons are selected
@@ -125,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
         // determines if the button checked
         boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
-        // Assign the tip percent
+        // Checks which radio button was clicked
+        // Assigns the tip percent based on the radio button selection
         switch(view.getId()) {
             case R.id.radio_15:
                 if (checked)
@@ -140,30 +157,28 @@ public class MainActivity extends AppCompatActivity {
                 if (checked)
                     tipPercent = 25;
                     break;
-            case R.id.radio_custom:
-                if (checked)
-                    // FIX
-                    tipPercent = R.id.input_percent;
-                    break;
         }
 
-        Log.i(TAG, String.valueOf(tipPercent));
+        /*Log.i(TAG, String.valueOf(tipPercent));*/
     }
 
     // can be called to reset the entered values
     public void resetValues() {
 
-        Toast.makeText(getApplicationContext(),
-                "RESET VALUES", Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(getApplicationContext(),
+                "RESET VALUES", Toast.LENGTH_SHORT).show();*/
 
+        // gets input fields
         inputBill = findViewById(R.id.input_bill);
         inputPeople = findViewById(R.id.input_people);
         inputCustom = findViewById(R.id.input_percent);
 
+        // sets the input fields to be empty
         inputBill.setText("");
         inputPeople.setText("");
         inputCustom.setText("");
 
+        // clears the radio button selection
         radioGroup = findViewById(R.id.radioGroup);
         radioGroup.clearCheck();
 
@@ -172,13 +187,16 @@ public class MainActivity extends AppCompatActivity {
     // ...
 
     public void goToSecondActivity() {
-        String bill = inputBill.getText().toString();
-        String numPeople = inputPeople.getText().toString();
+        // gets the string values from the input fields
+        bill = inputBill.getText().toString();
+        numPeople = inputPeople.getText().toString();
 
+        // puts them into the bundle
         i.putExtra("bill", bill);
         i.putExtra("numPeople", numPeople);
         i.putExtra("tipPercent", tipPercent);
 
+        // goes to the SecondActivity
         startActivity(i);
     }
 
@@ -187,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.i(TAG, "Saving instance state");
+        /*Log.i(TAG, "Saving instance state");
 
         // pulls the current values from the UI
         // ADD
@@ -195,13 +213,13 @@ public class MainActivity extends AppCompatActivity {
         // saves the current values to the bundle
         outState.putFloat("bill", bill);
         outState.putInt("numPeople", numPeople);
-        outState.putFloat("tipPercent", tipPercent);
+        outState.putFloat("tipPercent", tipPercent);*/
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Log.i(TAG, "Restoring instance state");
+       /* Log.i(TAG, "Restoring instance state");
 
         // pulls the saved values from the bundle
         bill = savedInstanceState.getFloat("bill");
@@ -209,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         tipPercent = savedInstanceState.getFloat("tipPercent");
 
         // displays the values
-        // EX. textCounter.setText(counterValue);
+        // EX. textCounter.setText(counterValue);*/
 
 
     }
